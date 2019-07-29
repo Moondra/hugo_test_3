@@ -1,0 +1,23 @@
+
+{{ partial "header.html" . }}
+<div class="row section recentworks topspace">
+
+    <h1 class="section-title"><span>Recent Works</span></h1>
+<div class="thumbnails recentworks">
+    {{ range .Paginator.Pages }}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <a class="thumbnail" href="{{ .Permalink }}">
+                <span class="img">
+                    <img src="{{ .Params.image }}" alt="">
+                </span>
+                <span class="posted-on"><time class="entry-date published" date="{{ .Date }}">{{ dateFormat .Site.Params.DateForm .Date }}</time></span>
+                <span class="title">{{ .Title }}</span>
+
+            </a>
+
+        <span class="details"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+
+
+</div>
+{{ end }}
+</div>
